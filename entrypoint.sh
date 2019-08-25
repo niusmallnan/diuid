@@ -6,6 +6,8 @@ echo "Rootfs: $(lsb_release -ds)"
 echo
 echo "Configuration: MEM=$MEM DISK=$DISK"
 
+RUN_CMD=$@
+
 #start sshd
 /etc/init.d/ssh start
 
@@ -56,5 +58,5 @@ while true; do
 	sleep 0.5
 done
 
-exec "$@"
+exec $RUN_CMD
 
